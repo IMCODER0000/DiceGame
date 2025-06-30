@@ -6,6 +6,8 @@ import battlereport.repository.BattleReportRepositoryImpl;
 import dicegame.entity.DiceGame;
 import dicegame.repository.DiceGameRepositoryImpl;
 
+import java.util.List;
+
 public class BattleReportServiceImpl implements BattleReportService {
 
     public static BattleReportServiceImpl instance;
@@ -29,7 +31,12 @@ public class BattleReportServiceImpl implements BattleReportService {
     }
 
     @Override
-    public BattleReport getBattleReportById(Long userId) {
+    public List<BattleReport> getBattleReportById(Long userId) {
         return battleReportRepository.getBattleReportById(userId);
+    }
+
+    @Override
+    public BattleReport getBattleReportByDiceGame(DiceGame diceGame) {
+        return battleReportRepository.getBattleReportByDiceGame(diceGame);
     }
 }

@@ -23,5 +23,17 @@ public class Token {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public void tokenClear() {
+        user = null;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Token{" +
+                "user=" + user.toString() +
+                '}';
+    }
 }
 

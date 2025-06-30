@@ -13,8 +13,10 @@ public class DiceGame {
     private List<Player> players;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private int round;
+    private int currentRound;
+    private Player currentPlayer;
     private Player winner;
+    boolean gameOver;
 
     public DiceGame(Long id,List<Player> players) {
         this.id = id;
@@ -22,10 +24,17 @@ public class DiceGame {
         this.startTime = LocalDateTime.now();
         this.endTime = LocalDateTime.now();
         this.winner = null;
+        this.currentRound = 1;
+        this.currentPlayer = null;
+        this.gameOver = false;
     }
 
     public Long getId() {
         return id;
+    }
+
+    public int getCurrentRound() {
+        return currentRound;
     }
 
     public List<Player> getPlayers() {
@@ -40,11 +49,33 @@ public class DiceGame {
         return endTime;
     }
 
-    public int getRound() {
-        return round;
+    public Player getCurrentPlayer() {
+        return currentPlayer;
     }
 
     public Player getWinner() {
         return winner;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
+
+    public void setCurrentRound(int currentRound) {
+        this.currentRound = currentRound;
+    }
+
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
+    public void setEndTime(LocalDateTime endTime) {
+        this.endTime = endTime;
+    }
+
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 }

@@ -1,5 +1,8 @@
 package player.view;
 
+import dicegame.service.DiceGameService;
+import dicegame.service.DiceGameServiceImpl;
+import dicegame.view.DiceGameView;
 import player.service.PlayerService;
 import player.service.PlayerServiceImpl;
 import util.service.UtilService;
@@ -17,32 +20,41 @@ public class PlayerView {
     }
 
     private final PlayerService playerService;
-    private final UtilView utilView;
+    private final DiceGameService diceGameService;
     public PlayerView() {
         this.playerService = PlayerServiceImpl.getInstance();
-        this.utilView = UtilView.getInstance();
+        this.diceGameService = DiceGameServiceImpl.getInstance();
+    }
+
+    private UtilView getUtilView() {
+        return UtilView.getInstance();
+    }
+    private DiceGameView getDiceGameView() {
+        return DiceGameView.getInstance();
     }
 
 
 
-    public void addPlayer() {
+    public void addPlayer() throws InterruptedException {
 
+        UtilService.sc.nextLine();
         System.out.println("        Player  생성      ");
         System.out.println();
-        System.out.println(" Player1 name :  ");
+        System.out.print(" Player1 name :  ");
         String player1 = UtilService.sc.nextLine();
-        System.out.println(" Player2 name :  ");
+        System.out.print(" Player2 name :  ");
         String player2 = UtilService.sc.nextLine();
 
         boolean result = playerService.addPlayer(player1, player2);
 
         if (result) {
-
+            getDiceGameView().startDiceGame
+                    ();
         } else{
             System.out.println();
             System.out.println(" Player 생성 실패");
             System.out.println();
-            utilView.userPage();
+            getUtilView().userPage();
         }
 
 

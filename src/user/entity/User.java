@@ -1,19 +1,25 @@
 package user.entity;
 
+import dicegame.entity.DiceGame;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
 
     private Long id;
     private String name;
     private String loginId;
     private String password;
-    private int currentRound;
+    private List<DiceGame> diceGames;
+    private DiceGame currentDiceGame;
 
     public User(Long id, String name, String loginId, String password) {
         this.id = id;
         this.name = name;
         this.loginId = loginId;
         this.password = password;
-        this.currentRound = 0;
+        this.diceGames = new ArrayList<>();
     }
 
     public String getLoginId() {
@@ -28,11 +34,39 @@ public class User {
         return id;
     }
 
+
+    public DiceGame getCurrentDiceGame() {
+        return currentDiceGame;
+    }
+
+
     public String getPassword() {
         return password;
     }
 
-    public int getCurrentRound() {
-        return currentRound;
+    public List<DiceGame> getDiceGames() {
+        return diceGames;
+    }
+
+    public void setDiceGames(List<DiceGame> diceGames) {
+        this.diceGames = diceGames;
+    }
+
+    public void setCurrentDiceGame(DiceGame currentDiceGame) {
+        this.currentDiceGame = currentDiceGame;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", loginId='" + loginId + '\'' +
+                ", password='" + password + '\'' +
+//                ", diceGames=" + diceGames +
+                ", currentDiceGame=" + currentDiceGame +
+                '}';
     }
 }

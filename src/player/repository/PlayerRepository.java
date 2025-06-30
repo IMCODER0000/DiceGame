@@ -4,7 +4,7 @@ import player.entity.Player;
 
 public interface PlayerRepository {
 
-    boolean save(String playerName1, String playerName2);
+    boolean save(Player player1, Player player2);;
 
     Player getPlayer(Long playerId);
 

@@ -16,4 +16,12 @@ public class BattleReport {
         this.userId = userId;
         this.diceGame = diceGame;
     }
+
+    public DiceGame getDiceGame() {
+        return diceGame;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
 }

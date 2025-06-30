@@ -5,7 +5,9 @@ import battlereport.entity.BattleReport;
 import dicegame.entity.DiceGame;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class BattleReportRepositoryImpl implements BattleReportRepository {
 
@@ -35,7 +37,16 @@ public class BattleReportRepositoryImpl implements BattleReportRepository {
     }
 
     @Override
-    public BattleReport getBattleReportById(Long userId) {
-        return battleReports.get(userId);
+    public List<BattleReport> getBattleReportById(Long userId) {
+        return battleReports.values().stream()
+                .filter(b -> b.getUserId().equals(userId))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public BattleReport getBattleReportByDiceGame(DiceGame diceGame) {
+        return battleReports.values().stream()
+                .filter(b -> b.getDiceGame().equals(diceGame))
+                .findFirst().orElse(null);
     }
 }

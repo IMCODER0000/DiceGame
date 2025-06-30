@@ -39,4 +39,9 @@ public class UserRepositoryImpl implements UserRepository {
                 .findFirst();
     }
 
+    @Override
+    public User getUserById(Long id) {
+        return users.get(id);
+    }
+
 }

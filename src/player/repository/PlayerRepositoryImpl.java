@@ -20,11 +20,8 @@ public class PlayerRepositoryImpl implements PlayerRepository {
 
 
     @Override
-    public boolean save(String playerName1, String playerName2) {
-
+    public boolean save(Player player1, Player player2) {
         try {
-            Player player1 = new Player(1L, playerName1);
-            Player player2 = new Player(1L, playerName1);
             players.put(player1.getId(), player1);
             players.put(player2.getId(), player2);
             return true;

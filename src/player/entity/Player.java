@@ -20,4 +20,37 @@ public class Player {
     public Long getId() {
         return id;
     }
+
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+
+
+    public int getTotalScore() {
+        return totalScore;
+    }
+
+    public boolean isCanSkill() {
+        return canSkill;
+    }
+
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setTotalScore(int totalScore) {
+        this.totalScore = totalScore;
+    }
+
+    public void setCanSkill(boolean canSkill) {
+        this.canSkill = canSkill;
+    }
+
+
 }

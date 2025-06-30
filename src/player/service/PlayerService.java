@@ -10,5 +10,7 @@ public interface PlayerService {
 
     List<Player> getPlayers();
 
+    Player getPlayer(Long playerId);
+
 
 }
